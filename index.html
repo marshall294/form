@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Orli International Academy Google Classroom Setup</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background-color: #f4f4f9;
+        }
+        .form-container {
+            max-width: 600px;
+            padding: 20px;
+            background-color: #ffffff;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+        .school-name {
+            font-family: 'Arial Black', sans-serif;
+            font-size: 24px;
+            color: #333;
+            text-transform: uppercase;
+            margin-bottom: 15px;
+            letter-spacing: 2px;
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+        }
+        label {
+            display: block;
+            margin-top: 10px;
+            font-weight: bold;
+            color: #555;
+            text-align: left;
+        }
+        input, select, textarea {
+            width: 100%;
+            padding: 10px;
+            margin-top: 5px;
+            margin-bottom: 15px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 16px;
+        }
+        button {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            background-color: #4CAF50;
+            color: #ffffff;
+            font-size: 18px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+        .notice {
+            margin-top: 15px;
+            font-size: 14px;
+            color: #555;
+        }
+    </style>
+    <script>
+        function sendToWhatsApp(event) {
+            event.preventDefault(); // Prevent form submission
+
+            // Get form values
+            const name = document.getElementById("name").value;
+            const email = document.getElementById("email").value;
+            const subject = document.getElementById("subject").value;
+            const classes = document.getElementById("class").value;
+
+            // Format message
+            const message = `Orli International Academy Google Classroom Setup Form Submission:\n\n` +
+                            `*Teacher's Full Name:* ${name}\n` +
+                            `*School Email Address:* ${email}\n` +
+                            `*Subject(s) Taught:* ${subject}\n` +
+                            `*Classes to Set Up:* ${classes}\n\n` +
+                            `Thank you!`;
+
+            // WhatsApp URL with pre-filled message
+            const whatsappUrl = `https://wa.me/2348102341648?text=${encodeURIComponent(message)}`;
+
+            // Open WhatsApp
+            window.open(whatsappUrl, "_blank");
+        }
+    </script>
+</head>
+<body>
+
+<div class="form-container">
+    <div class="school-name">Orli International Academy</div>
+    <h2>Google Classroom Setup Form</h2>
+    <form onsubmit="sendToWhatsApp(event)">
+        <label for="name">Teacher's Full Name:</label>
+        <input type="text" id="name" name="name" required>
+
+        <label for="email">School Email Address:</label>
+        <input type="email" id="email" name="email" required>
+
+        <label for="subject">Subject(s) Taught:</label>
+        <input type="text" id="subject" name="subject" required>
+
+        <label for="class">Classes to Set Up (e.g., Year 5, Year 6):</label>
+        <textarea id="class" name="class" rows="3" required></textarea>
+
+        <button type="submit">Submit Information</button>
+    </form>
+</div>
+
+</body>
+</html>
